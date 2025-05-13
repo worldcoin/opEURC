@@ -48,9 +48,9 @@ abstract contract Base is Test, Helpers {
   address internal _newPauser = makeAddr('newPauser');
   address internal _newBlacklister = makeAddr('newBlacklister');
   string internal _chainName = 'Test';
-  string internal _tokenName = 'Bridged USDC (Test)';
-  string internal _tokenSymbol = 'USDC.e';
-  string internal _tokenCurrency = 'USD';
+  string internal _tokenName = 'Bridged EURC (Test)';
+  string internal _tokenSymbol = 'EURC.e';
+  string internal _tokenCurrency = 'EUR';
   uint8 internal _tokenDecimals = 6;
 
   IL1OpUSDCFactory.L2Deployments internal _l2Deployments;
