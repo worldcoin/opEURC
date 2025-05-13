@@ -21,7 +21,7 @@ contract Integration_Factories is IntegrationBase {
 
     IL1OpUSDCFactory.L2Deployments memory _l2Deployments = l2Deployments;
 
-    _l2Deployments.usdcInitTxs[0] = abi.encodeWithSignature('initializeV2(string)', 'Bridged USDC (Optimism)');
+    _l2Deployments.usdcInitTxs[0] = abi.encodeWithSignature('initializeV2(string)', 'Bridged EURC (Optimism)');
 
     // Deploy the contracts
     uint256 _deploymentsSaltCounter = l1Factory.deploymentsSaltCounter();
@@ -45,7 +45,7 @@ contract Integration_Factories is IntegrationBase {
 
     vm.selectFork(optimism);
     IL2OpUSDCDeploy.USDCInitializeData memory _usdcInitializeData = usdcInitializeData;
-    _usdcInitializeData.tokenName = 'Bridged USDC (Optimism)';
+    _usdcInitializeData.tokenName = 'Bridged EURC (Optimism)';
     // Relay the L2 deployments message through the factory on L2
     _relayL2Deployments(OP_ALIASED_L1_MESSENGER, _salt, _l1Adapter, _usdcInitializeData, _l2Deployments);
 
@@ -59,7 +59,7 @@ contract Integration_Factories is IntegrationBase {
     assertGt(_l2Factory.code.length, 0, '7');
 
     // Check the USDC was properly deployed on L2
-    assertEq(_l2Usdc.name(), 'Bridged USDC (Optimism)', '8');
+    assertEq(_l2Usdc.name(), 'Bridged EURC (Optimism)', '8');
     assertEq(_l2Usdc.symbol(), _usdcSymbol, '9');
     assertEq(_l2Usdc.decimals(), _usdcDecimals, '10');
     assertEq(_l2Usdc.currency(), _usdcCurrency, '11');
@@ -89,7 +89,7 @@ contract Integration_Factories is IntegrationBase {
 
     vm.selectFork(optimism);
     IL2OpUSDCDeploy.USDCInitializeData memory _usdcInitializeData = usdcInitializeData;
-    _usdcInitializeData.tokenName = 'Bridged USDC (Optimism)';
+    _usdcInitializeData.tokenName = 'Bridged EURC (Optimism)';
     // Relay the second triggered L2 deployments message
     _relayL2Deployments(OP_ALIASED_L1_MESSENGER, _secondSalt, _secondL1Adapter, _usdcInitializeData, l2Deployments);
 
@@ -123,7 +123,7 @@ contract Integration_Factories is IntegrationBase {
     // Relay the L2 deployments on OP
     vm.selectFork(optimism);
     IL2OpUSDCDeploy.USDCInitializeData memory _usdcInitializeData = usdcInitializeData;
-    _usdcInitializeData.tokenName = 'Bridged USDC (Optimism)';
+    _usdcInitializeData.tokenName = 'Bridged EURC (Optimism)';
     _relayL2Deployments(OP_ALIASED_L1_MESSENGER, _opSalt, _opL1Adapter, _usdcInitializeData, l2Deployments);
 
     // Assert the contract were deployed to the expected addresses
@@ -159,7 +159,7 @@ contract Integration_Factories is IntegrationBase {
 
     // Back to base to relay the L2 deployments
     vm.selectFork(base);
-    _usdcInitializeData.tokenName = 'Bridged USDC (Base)';
+    _usdcInitializeData.tokenName = 'Bridged EURC (Base)';
     _relayL2Deployments(BASE_ALIASED_L1_MESSENGER, _baseSalt, _baseL1Adapter, _usdcInitializeData, l2Deployments);
 
     // Assert the contract were deployed to the expected addresses

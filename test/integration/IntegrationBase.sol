@@ -105,7 +105,7 @@ contract IntegrationBase is Helpers {
     // Get salt and initialize data for l2 deployments
     bytes32 _salt = bytes32(l1Factory.deploymentsSaltCounter());
     usdcInitializeData = IL2OpUSDCDeploy.USDCInitializeData(
-      'Bridged USDC (Test)', l1Factory.USDC_SYMBOL(), MAINNET_USDC.currency(), MAINNET_USDC.decimals()
+      'Bridged EURC (Test)', l1Factory.USDC_SYMBOL(), MAINNET_USDC.currency(), MAINNET_USDC.decimals()
     );
 
     // Give max minting power to the master minter
