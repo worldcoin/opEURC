@@ -1,7 +1,7 @@
 {
-  "name": "op-usdc",
+  "name": "op-eurc",
   "version": "1.0.0",
-  "description": "opUSDC, a USDC bridge for any OP Stack chain's canonical bridge",
+  "description": "opEURC, a EURC bridge for any OP Stack chain's canonical bridge",
   "license": "MIT",
   "author": "Wonderland",
   "scripts": {
@@ -25,7 +25,7 @@
     "migrate:mainnet:broadcast": "forge clean && dotenv -e .env -- sh -c 'forge script script/MigrateToNative.s.sol --broadcast --via-ir --rpc-url $ETHEREUM_RPC'",
     "migrate:testnet": "forge clean && dotenv -e .env.testnet -- sh -c 'forge script script/MigrateToNative.s.sol --via-ir --rpc-url $ETHEREUM_RPC'",
     "migrate:testnet:broadcast": "forge clean && dotenv -e .env.testnet -- sh -c 'forge script script/MigrateToNative.s.sol --broadcast --via-ir --rpc-url $ETHEREUM_RPC'",
-    "prepare": "husky init",
+    "prepare": "husky",
     "test": "forge test -vvv",
     "test:fuzz": "echidna test/invariants/fuzz/OpUSDC.t.sol --config test/invariants/fuzz/OpUsdc.yaml --contract FuzzOpUsdc",
     "test:integration": "forge test --match-contract Integration -vvv",

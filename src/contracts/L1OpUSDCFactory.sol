@@ -22,10 +22,10 @@ contract L1OpUSDCFactory is IL1OpUSDCFactory {
   address public constant L2_CREATE2_DEPLOYER = 0x13b0D85CcB8bf860b6b79AF3029fCA081AE9beF2;
 
   /// @inheritdoc IL1OpUSDCFactory
-  string public constant USDC_NAME = 'Bridged USDC';
+  string public constant USDC_NAME = 'Bridged EURC';
 
   /// @inheritdoc IL1OpUSDCFactory
-  string public constant USDC_SYMBOL = 'USDC.e';
+  string public constant USDC_SYMBOL = 'EURC.e';
 
   /// @notice The selector of the `initialize(string,string,string,uint8,address,address,address,address)` function.
   /// @dev Used to check the first init tx doesn't match it since it is already defined in the L2 factory contract

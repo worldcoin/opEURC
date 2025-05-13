@@ -10,7 +10,7 @@ import {USDCInitTxs} from 'src/contracts/utils/USDCInitTxs.sol';
 contract DeployProtocol is Script {
   uint32 public constant MIN_GAS_LIMIT_DEPLOY = 9_000_000;
   IL1OpUSDCFactory public immutable L1_FACTORY = IL1OpUSDCFactory(vm.envAddress('L1_FACTORY'));
-  address public immutable BRIDGED_USDC_IMPLEMENTATION = vm.envAddress('BRIDGED_USDC_IMPLEMENTATION');
+  address public immutable BRIDGED_EURC_IMPLEMENTATION = vm.envAddress('BRIDGED_EURC_IMPLEMENTATION');
   address public immutable L1_MESSENGER = vm.envAddress('L1_MESSENGER');
   string public chainName = vm.envString('CHAIN_NAME');
   address public owner = vm.rememberKey(vm.envUint('PRIVATE_KEY'));
@@ -20,7 +20,7 @@ contract DeployProtocol is Script {
 
     // NOTE: We have these hardcoded to default values, if used in production you will need to change them
     bytes[] memory _usdcInitTxs = new bytes[](3);
-    string memory _name = string.concat('Bridged USDC', ' ', '(', chainName, ')');
+    string memory _name = string.concat('Bridged EURC', ' ', '(', chainName, ')');
 
     _usdcInitTxs[0] = abi.encodeCall(IUSDC.initializeV2, (_name));
     _usdcInitTxs[1] = USDCInitTxs.INITIALIZEV2_1;
@@ -31,7 +31,7 @@ contract DeployProtocol is Script {
 
     IL1OpUSDCFactory.L2Deployments memory _l2Deployments = IL1OpUSDCFactory.L2Deployments({
       l2AdapterOwner: owner,
-      usdcImplAddr: BRIDGED_USDC_IMPLEMENTATION,
+      usdcImplAddr: BRIDGED_EURC_IMPLEMENTATION,
       usdcInitTxs: _usdcInitTxs,
       minGasLimitDeploy: MIN_GAS_LIMIT_DEPLOY
     });

@@ -11,7 +11,7 @@ library USDCInitTxs {
   /**
    * @dev The `initializeV2()` transaction data for the USDC implementation contract.
    */
-  bytes public constant INITIALIZEV2 = abi.encodeCall(IUSDC.initializeV2, ('Bridged USDC'));
+  bytes public constant INITIALIZEV2 = abi.encodeCall(IUSDC.initializeV2, ('Bridged EURC'));
 
   /**
    * @dev The `initializeV2_1()` transaction data for the USDC implementation contract.
@@ -21,5 +21,5 @@ library USDCInitTxs {
   /**
    * @dev The `initializeV2_2()` transaction data for the USDC implementation contract.
    */
-  bytes public constant INITIALIZEV2_2 = abi.encodeCall(IUSDC.initializeV2_2, (new address[](0), 'USDC.e'));
+  bytes public constant INITIALIZEV2_2 = abi.encodeCall(IUSDC.initializeV2_2, (new address[](0), 'EURC.e'));
 }
