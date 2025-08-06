@@ -13,9 +13,9 @@ contract DeployL1Factory is Script {
 
   function run() public {
     vm.startBroadcast(deployer);
-    console.log('Deploying L1OpUSDCFactory ...');
+    console.log('Deploying L1OpEURCFactory ...');
     IL1OpUSDCFactory _l1Factory = new L1OpUSDCFactory(eurc);
-    console.log('L1OpUSDCFactory deployed at:', address(_l1Factory));
+    console.log('L1OpEURCFactory deployed at:', address(_l1Factory));
     /// NOTE: Hardcode the newly deployed `_l1Factory` address on `L1_FACTORY` inside the `.env` or `.env.testnet` file
     vm.stopBroadcast();
   }
